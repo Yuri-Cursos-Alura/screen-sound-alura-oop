@@ -12,9 +12,30 @@
                 Available = true,
             };
 
+            var musica2 = new Musica
+            {
+                Artist = "Melanie Martinez",
+                Name = "Fire Drill",
+                Duration = new TimeSpan(days: 0, hours: 0, minutes: 4, seconds: 0),
+                Available = true,
+            };
 
-            Console.WriteLine(musica.Resumo);
-            Console.WriteLine($"Duração em segundos: {musica.Segundos}");
+            var musica3 = new Musica
+            {
+                Artist = "Marilyn Manson",
+                Name = "This is Halloween",
+                Duration = new TimeSpan(days: 0, hours: 0, minutes: 3, seconds: 23),
+                Available = true,
+            };
+
+            var album = new Album
+            {
+                Musics = [musica, musica2, musica3],
+                Name = "Um album muito bom."
+            };
+
+
+            album.PrintAlbum();
         }
     }
 }

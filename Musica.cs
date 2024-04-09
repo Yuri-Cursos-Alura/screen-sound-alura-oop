@@ -12,7 +12,7 @@ namespace screen_sound_alura_oop
         public required string Artist { get; set; }
         public required TimeSpan Duration { get; set; }
         public required bool Available { get; set; }
-        public int Segundos => Duration.Seconds + (Duration.Minutes * 60);
+        public int Segundos => (int) Duration.TotalSeconds;
         public string Resumo => $"{Name} do artista {Artist}";
     }
 }
