@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace screen_sound_alura_oop
 {
-    public class Banda(string name)
+    public class Artist(string name)
     {
         public List<Musica> Musics { get; set; } = [];
         public List<Album> Albums { get; set; } = [];
