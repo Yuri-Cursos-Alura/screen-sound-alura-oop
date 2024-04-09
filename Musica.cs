@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace screen_sound_alura_oop
 {
-    public class Musica
+    public class Musica(string name, bool available, int duration)
     {
-        public required string Name { get; set; }
-        public required string Artist { get; set; }
-        public required TimeSpan Duration { get; set; }
-        public required bool Available { get; set; }
-        public int Segundos => (int) Duration.TotalSeconds;
-        public string Resumo => $"{Name} do artista {Artist}";
+        public string Name { get; set; } = name;
+        public bool Available { get; set; } = available;
+        public int Duration { get; set; } = duration;
+
+        public void Show()
+        {
+            Console.WriteLine($"- {Name} | {Duration} Seconds.");
+        }
     }
 }

@@ -6,25 +6,21 @@ using System.Threading.Tasks;
 
 namespace screen_sound_alura_oop
 {
-    public class Album
+    public class Album(string name)
     {
-        public required List<Musica> Musics { get; set; }
-        public required string Name { get; set; }
-        public TimeSpan TotalDuration => new(Musics.Sum(u => u.Duration.Ticks));
-        public int TotalSeconds => (int) TotalDuration.TotalSeconds;
+        public List<Musica> Musics { get; set; } = [];
+        public string Name { get; set; } = name;
+        public int? Duration => Musics.Sum(u => u.Duration);
 
-        public void PrintAlbum()
+        public void Add(Musica musica) => Musics.Add(musica);
+        public void Remove(Musica musica) => Musics.Remove(musica);
+
+        public void ShowAllMusics()
         {
-            Console.Write($"Músicas de '{Name}': ");
-
-            for (int i = 0; i < Musics.Count; i++)
+            Console.WriteLine($"Album: {Name}\n");
+            foreach (var musica in Musics)
             {
-                var music = Musics[i];
-
-                if (Musics.Count - 1 != i)
-                    Console.Write($"{music.Name}, ");
-                else
-                    Console.WriteLine($"{music.Name}.");
+                musica.Show();
             }
         }
     }
